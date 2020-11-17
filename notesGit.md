@@ -91,3 +91,7 @@ on peut choisir d'intégrer dans main les modifications de experimental : $ git 
 → régler les conflits éventuels : git diff; éditer les fichiers; git commit -a
 
 on peut maintenant choisir de supprimer la branche experimental : $ git branch -d experimental
+
+on ne peut pas supprimer avec « -d » une branche qui n'a pas été fusionnée
+
+il faut forcer avec « -D ». exemple : $ git branch -D mauvaise-idee
