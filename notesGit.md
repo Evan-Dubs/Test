@@ -48,3 +48,14 @@ identifiant de la forme stash@{1}
 
 les branches...
 
+```
+$ git checkout  experimental
+Basculement sur la branche 'experimental'
+$ git branch
+* experimental
+  main
+```
+
+on peut éditer des fichiers; puis commit -a
+
+→ le commit est ajouté à la branche experimental
