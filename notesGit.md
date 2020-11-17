@@ -65,3 +65,23 @@ $ git branch
 → la branche active (*) est main
 
 on peut changer de branche : $ git checkout experimental
+
+```
+$ git checkout  experimental
+Basculement sur la branche 'experimental'
+$ git branch
+* experimental
+  main
+```
+
+on peut éditer des fichiers; puis commit -a
+
+→ le commit est ajouté à la branche experimental
+
+on peut basculer de nouveau sur « main » : $ git checkout main
+
+on peut encore éditer des fichiers; puis git commit -a
+
+→ ce commit est ajouté à la branche main
+
+là, les deux branches ont divergé
