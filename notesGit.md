@@ -85,3 +85,9 @@ on peut encore éditer des fichiers; puis git commit -a
 → ce commit est ajouté à la branche main
 
 là, les deux branches ont divergé
+
+on peut choisir d'intégrer dans main les modifications de experimental : $ git merge experimental
+
+→ régler les conflits éventuels : git diff; éditer les fichiers; git commit -a
+
+on peut maintenant choisir de supprimer la branche experimental : $ git branch -d experimental
