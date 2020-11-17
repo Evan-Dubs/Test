@@ -48,3 +48,18 @@ identifiant de la forme stash@{1}
 
 les branches...
 
+pour voir les branches avec gitk : $ gitk --all
+
+exemple : $ git branch experimental
+
+→ crée une nouvelle branche appelée « experimental »
+
+lister les branches : $ git branch
+
+```shell
+$ git branch
+  experimental
+* main
+```
+
+​	
