@@ -62,4 +62,6 @@ $ git branch
 * main
 ```
 
-​	
+→ la branche active (*) est main
+
+on peut changer de branche : $ git checkout experimental
