@@ -95,3 +95,4 @@ on peut maintenant choisir de supprimer la branche experimental : $ git branch -
 on ne peut pas supprimer avec « -d » une branche qui n'a pas été fusionnée
 
 il faut forcer avec « -D ». exemple : $ git branch -D mauvaise-idee
+
