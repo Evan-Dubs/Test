@@ -213,13 +213,25 @@
 
 ## TP #5 : Soigner ses commits
 
+exemples de commits sur de vrais projets, par exemple sur https://git.kernel.org/
+
+exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3ab78858f1451351221061a1c365495df196500
+
+*pour faire des commits propres...*
+
 - Sélectionner les morceaux à mettre dans un commit
 
   ```
   $ git add -p [<fichier>]
   ```
 
+  → git présente les différentes modifications, et demande s'il faut les intégrer à l'index puis git commit pour valider
+
 - Compléter le dernier commit
+
+  ⇒ ATTENTION
+
+  **il ne faut pas modifier des commits qui ont déjà été partagés (via un git push par exemple)**
 
   ```
   $ git commit --amend
@@ -233,6 +245,8 @@
   $ git reset --hard  <commit>         # les fichiers et l'index sont aussi réinitialisés
   ```
 
+  → <commit> est le dernier commit à conserver
+
   Exemples
 
   ```
@@ -245,6 +259,50 @@
 
   ```
   $ git rebase -i origin/master
+  $ git rebase -i origin/main
+  ```
+
+  → permet de modifier les commits depuis origin/main, càd depuis le dernier commit sur le dépôt distant (github)
+
+  → permet de modifier les commits locaux
+
+  *modifier* : éditer le message; modifier le commit; fusionner des commits; supprimer des commits; changer l'ordre de commits; etc.
+
+  exemple : 
+
+  ```
+  pick 03aaeb6b7e Declare function 'const'.
+  pick 9cfb1e3cb5 Assert that *request != MPI_REQUEST_NULL, and remove useless tests.
+  pick 75c3f46b3b Fix comments.
+  pick f653524eb9 Fix return type for get_maxpid().
+  pick 6b8d58b226 Introduce mc::mc_api (pull request 1 -- #349)
+  pick 4ec65626ec Fix comment.
+  
+  # Rebasage de 49966c59fb..4ec65626ec sur 49966c59fb (6 commandes)
+  #
+  # Commandes :
+  #  p, pick <commit> = utiliser le commit
+  #  r, reword <commit> = utiliser le commit, mais reformuler son message
+  #  e, edit <commit> = utiliser le commit, mais s'arrêter pour le modifier
+  #  s, squash <commit> = utiliser le commit, mais le fusionner avec le précédent
+  #  f, fixup <commit> = comme "squash", mais en éliminant son message
+  #  x, exec <commit> = lancer la commande (reste de la ligne) dans un shell
+  #  b, break = s'arrêter ici (on peut continuer ensuite avec 'git rebase --contine')
+  #  d, drop <commit> = supprimer le commit
+  #  l, label <label> = étiqueter la HEAD courante avec un nom
+  #  t, reset <label> = réinitialiser HEAD à label
+  #  m, merge [-C <commit> | -c <commit>] <label> [# <uniligne>]
+  #          créer un commit de fusion utilisant le message de fusion original
+  #          (ou l'uniligne, si aucun commit de fusion n'a été spécifié).
+  #          Utilisez -c <commit> pour reformuler le message de validation.
+  #
+  # Vous pouvez réordonner ces lignes ; elles sont exécutées de haut en bas.
+  #
+  # Si vous éliminez une ligne ici, LE COMMIT CORRESPONDANT SERA PERDU.
+  #
+  # Cependant, si vous effacez tout, le rebasage sera annulé.
+  #
+  # Veuillez noter que les commits vides sont en commentaire
   ```
 
 - Éviter un « merge » lors d'un git pull
@@ -256,6 +314,8 @@
 [Un petit flowchart pour illustrer...](http://justinhileman.info/article/git-pretty/)
 
 
+
+***
 
 ajouter des fichiers : $ git add fichier(s)
 
