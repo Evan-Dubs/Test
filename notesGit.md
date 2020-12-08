@@ -8,14 +8,14 @@
 
 - Copie du dépôt : commande git clone.
 
-  ```
+  ```bash
   $ git clone https://gitlab.iut-bm.univ-fcomte.fr/LOGIN/DEPOT.git
   $ git clone git@gitlab.iut-bm.univ-fcomte.fr:LOGIN/DEPOT.git
   ```
 
    Avec GitHub:
 
-  ```
+  ```bash
   $ git clone https://github.com/LOGIN/DEPOT.git
   $ git clone git@github.com:LOGIN/DEPOT.git
   ```
@@ -26,14 +26,14 @@
 
 - Manuel : man, git help, [manuel en ligne](https://git-scm.com/docs)
 
-  ```
+  ```bash
   $ man git clone
   $ git help clone
   ```
 
 - Configuration minimale :
 
-  ```
+  ```bash
   $ git config --global user.name "Prénom Nom"
   $ git config --global user.email "user‌@example.com"
   $ git config --global color.ui auto
@@ -43,7 +43,7 @@
 
 - Consulter l'état de l'espace de travail :
 
-  ```
+  ```bash
   $ git status
   $ git diff
   $ git diff --word-diff
@@ -52,7 +52,7 @@
 
 - Modifier ou ajouter un ou des fichiers :
 
-  ```
+  ```bash
   $ git add <fichier...>
   $ git commit
   $ git commit -a
@@ -61,7 +61,7 @@
 
 - Revoir les commits :
 
-  ```
+  ```bash
   $ gitk
   $ git show
   $ git log
@@ -72,13 +72,13 @@
 
 - Envoyer les commits vers le serveur :
 
-  ```
+  ```bash
   $ git push
   ```
 
 - Recevoir les commits depuis le serveur :
 
-  ```
+  ```bash
   $ git fetch
   $ git pull
   ```
@@ -98,7 +98,7 @@
 
 - Ajouter, supprimer des fichiers:
 
-  ```
+  ```bash
   $ git add <fichier...>
   $ git rm <fichier...>
   $ git mv <source...> <destination>
@@ -108,7 +108,7 @@
 
 - Mettre du travail de côté:
 
-  ```
+  ```bash
   $ git stash
   $ git stash show
   $ git stash show -p
@@ -119,7 +119,7 @@
 
 - Les branches (NB: dans les versions récentes, la branche *master* s'appelle peut-être *main*):
 
-  ```
+  ```bash
   $ git branch experimental
   $ git branch
     experimental
@@ -144,7 +144,7 @@
 
 - Différentes manières de désigner un commit (cf. [gitrevisions(7)](https://git-scm.com/docs/gitrevisions) pour les détails):
 
-  ```
+  ```bash
   $ git show ca6601f...                # identifiant, peut être abrégé
   $ git show experimental              # nom de branche
   $ git show HEAD                      # dernier commit
@@ -157,13 +157,13 @@
 
 - Étiqueter un commit:
 
-  ```
+  ```bash
   $ git tag v2.5 1b2e1d63ff
   ```
 
 - Quelques exemples:
 
-  ```
+  ```bash
   $ git diff v2.5 HEAD
   $ git log v2.5..v2.6
   $ git log v2.5..
@@ -178,20 +178,20 @@
 
 - Rechercher un motif:
 
-  ```
+  ```bash
   $ git grep "hello"
   $ git grep "hello" v2.5
   ```
 
 - Voir qui a modifié les lignes d'un fichier:
 
-  ```
+  ```bash
   $ git blame <fichier>
   ```
 
 - Retrouver le commit à l'origine d'un problème (bug):
 
-  ```
+  ```bash
   $ git bisect start                   # démarrer une nouvelle recherche
   $ git bisect bad                     # la version courante n'est pas bonne
   $ git bisect good v2.6.13-rc2        # la version v2.6.13-rc2 était bonne
@@ -207,7 +207,7 @@
 
 - Annuler un commit:
 
-  ```
+  ```bash
   $ git revert <commit>
   ```
 
@@ -221,7 +221,7 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
 - Sélectionner les morceaux à mettre dans un commit
 
-  ```
+  ```bash
   $ git add -p [<fichier>]
   ```
 
@@ -233,13 +233,13 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
   **il ne faut pas modifier des commits qui ont déjà été partagés (via un git push par exemple)**
 
-  ```
+  ```bash
   $ git commit --amend
   ```
 
 - Supprimer des commits
 
-  ```
+  ```bash
   $ git reset --soft  <commit>         # ne touche pas aux fichiers, ni à l'index
   $ git reset --mixed <commit>         # l'index est réinitialisé
   $ git reset --hard  <commit>         # les fichiers et l'index sont aussi réinitialisés
@@ -249,7 +249,7 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
   Exemples
 
-  ```
+  ```bash
   $ git reset --soft HEAD^             # supprime le dernier commit
   $ git reset --hard HEAD~3            # supprime les 3 derniers commits, et réinitialilse les fichiers
   $ git reset --hard                   # HEAD par défaut, supprime toutes les modifications non enregistrées
@@ -257,7 +257,7 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
 - Modifier les derniers commits (éventuellement avec *origin/main*)
 
-  ```
+  ```bash
   $ git rebase -i origin/master
   $ git rebase -i origin/main
   ```
@@ -270,7 +270,7 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
   exemple : 
 
-  ```
+  ```bash
   pick 03aaeb6b7e Declare function 'const'.
   pick 9cfb1e3cb5 Assert that *request != MPI_REQUEST_NULL, and remove useless tests.
   pick 75c3f46b3b Fix comments.
@@ -307,13 +307,64 @@ exemple typique de commit : https://git.kernel.org/pub/scm/linux/kernel/git/torv
 
 - Éviter un « merge » lors d'un git pull
 
-  ```
+  ```bash
   $ git pull --rebase
   ```
 
 [Un petit flowchart pour illustrer...](http://justinhileman.info/article/git-pretty/)
 
+## TP #6 : Sans serveur central
 
+- Initialisation d'un nouveau dépôt
+
+  ```bash
+  $ mkdir projet
+  $ cd projet
+  $ git init #Initialiser un nouveau dépôt dans un répertoire
+  # puis: ajout de fichiers, git add, git commit, ...
+  ```
+
+  Autre exemple, avec des fichiers existant
+
+  ```bash
+  $ tar zxf projet.tar.gz
+  $ cd projet
+  $ git init
+  $ git add .
+  $ git commit -m "Commit initial."
+  ```
+
+- Copie d'un dépôt
+
+  ```bash
+  $ git clone /path/to/repo            # local
+  $ git clone user@host:/path/to/repo  # distant, par ssh
+  ```
+
+- Intégrer les changements d'un dépôt distant
+
+  ```bash
+  $ git pull <url> <branche>
+  $ git fetch <url> <branche>
+  ```
+
+  Exemple
+
+  ```bash
+  $ git fetch user@host:/path/to/repo master
+  ```
+
+#### Exercice
+
+Cf. [gittutorial(7)](https://git-scm.com/docs/gittutorial), « [USING GIT FOR COLLABORATION ](https://git-scm.com/docs/gittutorial#_using_git_for_collaboration)»
+Se mettre par deux et essayer de reproduire le scénario. 
+
+Penser à donner les droits suffisants
+
+```
+$ chmod g+x ~
+$ chmod -R g+rX ~/projet/
+```
 
 ***
 
